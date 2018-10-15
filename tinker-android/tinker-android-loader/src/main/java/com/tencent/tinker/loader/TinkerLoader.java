@@ -75,7 +75,7 @@ public class TinkerLoader extends AbstractTinkerLoader {
             return;
 
         }
-        //tinker
+        // data/data/tinker.sample.android/tinker
         File patchDirectoryFile = SharePatchFileUtil.getPatchDirectory(app);
         if (patchDirectoryFile == null) {
             Log.w(TAG, "tryLoadPatchFiles:getPatchDirectory == null");
@@ -83,6 +83,8 @@ public class TinkerLoader extends AbstractTinkerLoader {
             ShareIntentUtil.setIntentReturnCode(resultIntent, ShareConstants.ERROR_LOAD_PATCH_DIRECTORY_NOT_EXIST);
             return;
         }
+
+        //data/data/tinker.sample.android/tinker
         String patchDirectoryPath = patchDirectoryFile.getAbsolutePath();
 
         //check patch directory whether exist
@@ -93,6 +95,7 @@ public class TinkerLoader extends AbstractTinkerLoader {
         }
 
         //tinker/patch.info
+        // data/data/tinker.sample.android/tinker/patch.info
         File patchInfoFile = SharePatchFileUtil.getPatchInfoFile(patchDirectoryPath);
 
         //check patch info file whether exist
@@ -103,8 +106,10 @@ public class TinkerLoader extends AbstractTinkerLoader {
         }
         //old = 641e634c5b8f1649c75caf73794acbdf
         //new = 2c150d8560334966952678930ba67fa8
+        //data/data/tinker.sample.android/tinker/info.lock
         File patchInfoLockFile = SharePatchFileUtil.getPatchInfoLockFile(patchDirectoryPath);
 
+        //gxz 没明白patchInfo
         patchInfo = SharePatchInfo.readAndCheckPropertyWithLock(patchInfoFile, patchInfoLockFile);
         if (patchInfo == null) {
             ShareIntentUtil.setIntentReturnCode(resultIntent, ShareConstants.ERROR_LOAD_PATCH_INFO_CORRUPTED);

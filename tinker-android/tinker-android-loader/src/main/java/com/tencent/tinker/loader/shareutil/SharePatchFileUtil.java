@@ -78,11 +78,14 @@ public class SharePatchFileUtil {
         return new File(tempFile, ShareConstants.PATCH_TEMP_LAST_CRASH_NAME);
     }
 
+
     public static File getPatchInfoFile(String patchDirectory) {
+        // data/data/tinker.sample.android/tinker/patch.info
         return new File(patchDirectory + "/" + ShareConstants.PATCH_INFO_NAME);
     }
 
     public static File getPatchInfoLockFile(String patchDirectory) {
+        //data/data/tinker.sample.android/tinker/info.lock
         return new File(patchDirectory + "/" + ShareConstants.PATCH_INFO_LOCK_NAME);
     }
 
